@@ -26,13 +26,6 @@ class TestJsonsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_json_json_create_post(self) -> None:
-        """Test case for create_json_json_create_post
-
-        Create Json
-        """
-        pass
-
     def test_delete_json_json_delete(self) -> None:
         """Test case for delete_json_json_delete
 

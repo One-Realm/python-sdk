@@ -26,13 +26,6 @@ class TestRolesApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_default_roles_project_project_id_default_roles_post(self) -> None:
-        """Test case for create_default_roles_project_project_id_default_roles_post
-
-        Create Default Roles
-        """
-        pass
-
     def test_create_role_project_project_id_roles_post(self) -> None:
         """Test case for create_role_project_project_id_roles_post
 
@@ -40,31 +33,10 @@ class TestRolesApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_role_project_project_id_roles_role_id_delete(self) -> None:
-        """Test case for delete_role_project_project_id_roles_role_id_delete
-
-        Delete Role
-        """
-        pass
-
     def test_get_all_role_ids_project_project_id_roles_get(self) -> None:
         """Test case for get_all_role_ids_project_project_id_roles_get
 
         Get All Role Ids
-        """
-        pass
-
-    def test_get_role_project_project_id_roles_role_id_get(self) -> None:
-        """Test case for get_role_project_project_id_roles_role_id_get
-
-        Get Role
-        """
-        pass
-
-    def test_update_role_project_project_id_roles_role_id_post(self) -> None:
-        """Test case for update_role_project_project_id_roles_role_id_post
-
-        Update Role
         """
         pass
 
