@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "2.0.1"
+__version__ = "3.0.104"
 
 # Define package exports
 __all__ = [
@@ -47,18 +47,29 @@ __all__ = [
     "BatchDeleteResponse",
     "ChatModelInfoResponse",
     "ChatRules",
+    "ComputeColumnAsyncResponse",
+    "ComputeColumnCancelResponse",
+    "ComputeColumnJobsResponse",
+    "ComputeColumnRequest",
+    "ComputeColumnStatusResponse",
     "CreateChatPromptRequest",
     "CreateChatPromptResponse",
     "CreateProjectRequest",
     "CreateProjectResponse",
     "CreateRoleRequest",
     "CreateRoleResponse",
+    "CreateViewRequest",
+    "CreateViewResponse",
     "CustomChatbot",
     "DTField",
     "DataTypeWithSchema",
+    "DeleteChatRequest",
+    "DeleteChatResponse",
     "DeleteDataTypeResponse",
     "DeleteJsonRequest",
     "DeleteJsonResponse",
+    "DeleteProjectRequest",
+    "DeleteProjectResponse",
     "DocumentRules",
     "EditExistingCustomAgent",
     "EditExistingCustomAgentResponse",
@@ -69,10 +80,14 @@ __all__ = [
     "GetAllRoleNamesResponse",
     "GetChatResponse",
     "GetChatsResponse",
+    "GetDataTypeViewResponse",
+    "GetGroupedDataTypeViewResponse",
     "GetJsonRequest",
     "GetJsonsRequest",
     "GetProjectMembersResponse",
+    "GetTemplatesResponse",
     "HTTPValidationError",
+    "Images",
     "ImportTableResponse",
     "InvitedUser",
     "KBFileStatus",
@@ -85,6 +100,7 @@ __all__ = [
     "Project",
     "ProjectInfo",
     "ProjectMember",
+    "QuickUploadMultiple",
     "Resource",
     "Role",
     "RolesRules",
@@ -96,11 +112,21 @@ __all__ = [
     "RoutesProjectsActivateCustomAgentRequest",
     "RoutesProjectsMember",
     "Rules",
+    "SaveNewCustomAgent",
+    "SaveNewCustomAgentResponse",
+    "SendMessageResponse",
     "SettingsRules",
+    "SyncFileRequest",
     "SystemPromptInfo",
+    "TemplateField",
+    "TemplatePreview",
     "UpdateJsonRequest",
     "UpdateProjectRequest",
     "UpdateProjectResponse",
+    "UpdateViewRequest",
+    "UpdateViewResponse",
+    "UseTemplateRequest",
+    "UseTemplateResponse",
     "UserDetails",
     "UserInfo",
     "ValidationError",
@@ -141,18 +167,29 @@ from odin_sdk.models.batch_delete_request import BatchDeleteRequest as BatchDele
 from odin_sdk.models.batch_delete_response import BatchDeleteResponse as BatchDeleteResponse
 from odin_sdk.models.chat_model_info_response import ChatModelInfoResponse as ChatModelInfoResponse
 from odin_sdk.models.chat_rules import ChatRules as ChatRules
+from odin_sdk.models.compute_column_async_response import ComputeColumnAsyncResponse as ComputeColumnAsyncResponse
+from odin_sdk.models.compute_column_cancel_response import ComputeColumnCancelResponse as ComputeColumnCancelResponse
+from odin_sdk.models.compute_column_jobs_response import ComputeColumnJobsResponse as ComputeColumnJobsResponse
+from odin_sdk.models.compute_column_request import ComputeColumnRequest as ComputeColumnRequest
+from odin_sdk.models.compute_column_status_response import ComputeColumnStatusResponse as ComputeColumnStatusResponse
 from odin_sdk.models.create_chat_prompt_request import CreateChatPromptRequest as CreateChatPromptRequest
 from odin_sdk.models.create_chat_prompt_response import CreateChatPromptResponse as CreateChatPromptResponse
 from odin_sdk.models.create_project_request import CreateProjectRequest as CreateProjectRequest
 from odin_sdk.models.create_project_response import CreateProjectResponse as CreateProjectResponse
 from odin_sdk.models.create_role_request import CreateRoleRequest as CreateRoleRequest
 from odin_sdk.models.create_role_response import CreateRoleResponse as CreateRoleResponse
+from odin_sdk.models.create_view_request import CreateViewRequest as CreateViewRequest
+from odin_sdk.models.create_view_response import CreateViewResponse as CreateViewResponse
 from odin_sdk.models.custom_chatbot import CustomChatbot as CustomChatbot
 from odin_sdk.models.dt_field import DTField as DTField
 from odin_sdk.models.data_type_with_schema import DataTypeWithSchema as DataTypeWithSchema
+from odin_sdk.models.delete_chat_request import DeleteChatRequest as DeleteChatRequest
+from odin_sdk.models.delete_chat_response import DeleteChatResponse as DeleteChatResponse
 from odin_sdk.models.delete_data_type_response import DeleteDataTypeResponse as DeleteDataTypeResponse
 from odin_sdk.models.delete_json_request import DeleteJsonRequest as DeleteJsonRequest
 from odin_sdk.models.delete_json_response import DeleteJsonResponse as DeleteJsonResponse
+from odin_sdk.models.delete_project_request import DeleteProjectRequest as DeleteProjectRequest
+from odin_sdk.models.delete_project_response import DeleteProjectResponse as DeleteProjectResponse
 from odin_sdk.models.document_rules import DocumentRules as DocumentRules
 from odin_sdk.models.edit_existing_custom_agent import EditExistingCustomAgent as EditExistingCustomAgent
 from odin_sdk.models.edit_existing_custom_agent_response import EditExistingCustomAgentResponse as EditExistingCustomAgentResponse
@@ -163,10 +200,14 @@ from odin_sdk.models.get_all_projects_response import GetAllProjectsResponse as 
 from odin_sdk.models.get_all_role_names_response import GetAllRoleNamesResponse as GetAllRoleNamesResponse
 from odin_sdk.models.get_chat_response import GetChatResponse as GetChatResponse
 from odin_sdk.models.get_chats_response import GetChatsResponse as GetChatsResponse
+from odin_sdk.models.get_data_type_view_response import GetDataTypeViewResponse as GetDataTypeViewResponse
+from odin_sdk.models.get_grouped_data_type_view_response import GetGroupedDataTypeViewResponse as GetGroupedDataTypeViewResponse
 from odin_sdk.models.get_json_request import GetJsonRequest as GetJsonRequest
 from odin_sdk.models.get_jsons_request import GetJsonsRequest as GetJsonsRequest
 from odin_sdk.models.get_project_members_response import GetProjectMembersResponse as GetProjectMembersResponse
+from odin_sdk.models.get_templates_response import GetTemplatesResponse as GetTemplatesResponse
 from odin_sdk.models.http_validation_error import HTTPValidationError as HTTPValidationError
+from odin_sdk.models.images import Images as Images
 from odin_sdk.models.import_table_response import ImportTableResponse as ImportTableResponse
 from odin_sdk.models.invited_user import InvitedUser as InvitedUser
 from odin_sdk.models.kb_file_status import KBFileStatus as KBFileStatus
@@ -179,6 +220,7 @@ from odin_sdk.models.personality_id import PersonalityId as PersonalityId
 from odin_sdk.models.project import Project as Project
 from odin_sdk.models.project_info import ProjectInfo as ProjectInfo
 from odin_sdk.models.project_member import ProjectMember as ProjectMember
+from odin_sdk.models.quick_upload_multiple import QuickUploadMultiple as QuickUploadMultiple
 from odin_sdk.models.resource import Resource as Resource
 from odin_sdk.models.role import Role as Role
 from odin_sdk.models.roles_rules import RolesRules as RolesRules
@@ -190,11 +232,21 @@ from odin_sdk.models.routes_knowledgebase_knowledge_base_data_response import Ro
 from odin_sdk.models.routes_projects_activate_custom_agent_request import RoutesProjectsActivateCustomAgentRequest as RoutesProjectsActivateCustomAgentRequest
 from odin_sdk.models.routes_projects_member import RoutesProjectsMember as RoutesProjectsMember
 from odin_sdk.models.rules import Rules as Rules
+from odin_sdk.models.save_new_custom_agent import SaveNewCustomAgent as SaveNewCustomAgent
+from odin_sdk.models.save_new_custom_agent_response import SaveNewCustomAgentResponse as SaveNewCustomAgentResponse
+from odin_sdk.models.send_message_response import SendMessageResponse as SendMessageResponse
 from odin_sdk.models.settings_rules import SettingsRules as SettingsRules
+from odin_sdk.models.sync_file_request import SyncFileRequest as SyncFileRequest
 from odin_sdk.models.system_prompt_info import SystemPromptInfo as SystemPromptInfo
+from odin_sdk.models.template_field import TemplateField as TemplateField
+from odin_sdk.models.template_preview import TemplatePreview as TemplatePreview
 from odin_sdk.models.update_json_request import UpdateJsonRequest as UpdateJsonRequest
 from odin_sdk.models.update_project_request import UpdateProjectRequest as UpdateProjectRequest
 from odin_sdk.models.update_project_response import UpdateProjectResponse as UpdateProjectResponse
+from odin_sdk.models.update_view_request import UpdateViewRequest as UpdateViewRequest
+from odin_sdk.models.update_view_response import UpdateViewResponse as UpdateViewResponse
+from odin_sdk.models.use_template_request import UseTemplateRequest as UseTemplateRequest
+from odin_sdk.models.use_template_response import UseTemplateResponse as UseTemplateResponse
 from odin_sdk.models.user_details import UserDetails as UserDetails
 from odin_sdk.models.user_info import UserInfo as UserInfo
 from odin_sdk.models.validation_error import ValidationError as ValidationError

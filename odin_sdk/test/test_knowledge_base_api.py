@@ -40,6 +40,13 @@ class TestKnowledgeBaseApi(unittest.TestCase):
         """
         pass
 
+    def test_sync_kb_file_v2_v2_project_knowledge_sync_file_post(self) -> None:
+        """Test case for sync_kb_file_v2_v2_project_knowledge_sync_file_post
+
+        Sync Kb File V2
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

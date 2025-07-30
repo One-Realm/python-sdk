@@ -40,6 +40,13 @@ class TestProjectsApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_project_project_delete_delete(self) -> None:
+        """Test case for delete_project_project_delete_delete
+
+        Delete Project
+        """
+        pass
+
     def test_edit_project_user_project_user_edit_post(self) -> None:
         """Test case for edit_project_user_project_user_edit_post
 

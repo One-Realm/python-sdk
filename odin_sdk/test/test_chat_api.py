@@ -33,6 +33,13 @@ class TestChatApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_chat_chat_delete_delete(self) -> None:
+        """Test case for delete_chat_chat_delete_delete
+
+        Delete Chat
+        """
+        pass
+
     def test_get_chat_project_project_id_chat_chat_id_get(self) -> None:
         """Test case for get_chat_project_project_id_chat_chat_id_get
 
@@ -51,6 +58,13 @@ class TestChatApi(unittest.TestCase):
         """Test case for get_default_models_chat_models_get
 
         Get Default Models
+        """
+        pass
+
+    def test_send_message_v3_v3_chat_message_post(self) -> None:
+        """Test case for send_message_v3_v3_chat_message_post
+
+         Send Message V3
         """
         pass
 

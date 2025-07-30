@@ -1,13 +1,13 @@
 [project]
-name = "odin_sdk"
-version = "2.0.1"
-description = "API Docs"
+name = "odinai-sdk"
+version = "3.0.104"
+description = "Odin AI Python SDK - Official Python client library for Odin AI API"
 authors = [
-  {name = "OpenAPI Generator Community",email = "team@openapitools.org"},
+  {name = "Odin AI Team", email = "support@getodin.ai"},
 ]
-license = "NoLicense"
+license = {text = "MIT"}
 readme = "README.md"
-keywords = ["OpenAPI", "OpenAPI-Generator", "API Docs"]
+keywords = ["odin", "ai", "api", "sdk", "python", "cybersecurity", "security"]
 requires-python = ">=3.9"
 
 dependencies = [
@@ -18,7 +18,8 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
+Repository = "https://github.com/getodin/odin-sdk"
+Homepage = "https://getodin.ai"
 
 [tool.poetry]
 requires-poetry = ">=2.0"

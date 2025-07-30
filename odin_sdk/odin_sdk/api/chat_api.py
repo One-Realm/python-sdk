@@ -16,14 +16,19 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictFloat, StrictInt, StrictStr
-from typing import Optional, Union
+from pydantic import Field, StrictBool, StrictBytes, StrictFloat, StrictInt, StrictStr
+from typing import Any, Dict, Optional, Tuple, Union
 from typing_extensions import Annotated
 from odin_sdk.models.chat_model_info_response import ChatModelInfoResponse
 from odin_sdk.models.create_chat_prompt_request import CreateChatPromptRequest
 from odin_sdk.models.create_chat_prompt_response import CreateChatPromptResponse
+from odin_sdk.models.delete_chat_request import DeleteChatRequest
+from odin_sdk.models.delete_chat_response import DeleteChatResponse
 from odin_sdk.models.get_chat_response import GetChatResponse
 from odin_sdk.models.get_chats_response import GetChatsResponse
+from odin_sdk.models.images import Images
+from odin_sdk.models.quick_upload_multiple import QuickUploadMultiple
+from odin_sdk.models.send_message_response import SendMessageResponse
 
 from odin_sdk.api_client import ApiClient, RequestSerialized
 from odin_sdk.api_response import ApiResponse
@@ -334,6 +339,312 @@ class ChatApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/chat/create',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def delete_chat_chat_delete_delete(
+        self,
+        delete_chat_request: DeleteChatRequest,
+        x_api_key: Annotated[Optional[StrictStr], Field(description="Your Odin API key.")] = None,
+        x_api_secret: Annotated[Optional[StrictStr], Field(description="Your Odin API secret.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> DeleteChatResponse:
+        """Delete Chat
+
+        Deletes a chat from the project
+
+        :param delete_chat_request: (required)
+        :type delete_chat_request: DeleteChatRequest
+        :param x_api_key: Your Odin API key.
+        :type x_api_key: str
+        :param x_api_secret: Your Odin API secret.
+        :type x_api_secret: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_chat_chat_delete_delete_serialize(
+            delete_chat_request=delete_chat_request,
+            x_api_key=x_api_key,
+            x_api_secret=x_api_secret,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteChatResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def delete_chat_chat_delete_delete_with_http_info(
+        self,
+        delete_chat_request: DeleteChatRequest,
+        x_api_key: Annotated[Optional[StrictStr], Field(description="Your Odin API key.")] = None,
+        x_api_secret: Annotated[Optional[StrictStr], Field(description="Your Odin API secret.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[DeleteChatResponse]:
+        """Delete Chat
+
+        Deletes a chat from the project
+
+        :param delete_chat_request: (required)
+        :type delete_chat_request: DeleteChatRequest
+        :param x_api_key: Your Odin API key.
+        :type x_api_key: str
+        :param x_api_secret: Your Odin API secret.
+        :type x_api_secret: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_chat_chat_delete_delete_serialize(
+            delete_chat_request=delete_chat_request,
+            x_api_key=x_api_key,
+            x_api_secret=x_api_secret,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteChatResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def delete_chat_chat_delete_delete_without_preload_content(
+        self,
+        delete_chat_request: DeleteChatRequest,
+        x_api_key: Annotated[Optional[StrictStr], Field(description="Your Odin API key.")] = None,
+        x_api_secret: Annotated[Optional[StrictStr], Field(description="Your Odin API secret.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Delete Chat
+
+        Deletes a chat from the project
+
+        :param delete_chat_request: (required)
+        :type delete_chat_request: DeleteChatRequest
+        :param x_api_key: Your Odin API key.
+        :type x_api_key: str
+        :param x_api_secret: Your Odin API secret.
+        :type x_api_secret: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_chat_chat_delete_delete_serialize(
+            delete_chat_request=delete_chat_request,
+            x_api_key=x_api_key,
+            x_api_secret=x_api_secret,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteChatResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _delete_chat_chat_delete_delete_serialize(
+        self,
+        delete_chat_request,
+        x_api_key,
+        x_api_secret,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        if x_api_key is not None:
+            _header_params['X-API-KEY'] = x_api_key
+        if x_api_secret is not None:
+            _header_params['X-API-SECRET'] = x_api_secret
+        # process the form parameters
+        # process the body parameter
+        if delete_chat_request is not None:
+            _body_params = delete_chat_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='DELETE',
+            resource_path='/chat/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1248,6 +1559,762 @@ class ChatApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/chat/models',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def send_message_v3_v3_chat_message_post(
+        self,
+        message: StrictStr,
+        project_id: StrictStr,
+        x_api_key: Annotated[Optional[StrictStr], Field(description="Your Odin API key.")] = None,
+        x_api_secret: Annotated[Optional[StrictStr], Field(description="Your Odin API secret.")] = None,
+        chat_id: Optional[StrictStr] = None,
+        document_keys: Optional[StrictStr] = None,
+        google_search: Optional[StrictBool] = None,
+        is_test: Optional[StrictBool] = None,
+        personality_name: Optional[StrictStr] = None,
+        return_message: Optional[StrictBool] = None,
+        ai_response: Optional[StrictBool] = None,
+        model_name: Optional[StrictStr] = None,
+        agent_type: Optional[StrictStr] = None,
+        chat_name: Optional[StrictStr] = None,
+        agent_id: Optional[StrictStr] = None,
+        personality_id: Optional[StrictStr] = None,
+        use_knowledgebase: Optional[StrictBool] = None,
+        is_regenerating: Optional[StrictBool] = None,
+        message_id: Optional[StrictStr] = None,
+        ui_form: Optional[Dict[str, Any]] = None,
+        images: Optional[Images] = None,
+        threshold: Optional[Union[StrictFloat, StrictInt]] = None,
+        use_kb_cache: Optional[StrictBool] = None,
+        ignore_chat_history: Optional[StrictBool] = None,
+        quick_upload_file: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
+        format_instructions: Optional[StrictStr] = None,
+        example_json: Optional[StrictStr] = None,
+        multipart_document_keys: Optional[StrictStr] = None,
+        quick_upload_multiple: Optional[QuickUploadMultiple] = None,
+        sent_from_automator: Optional[StrictBool] = None,
+        skip_stream: Optional[StrictBool] = None,
+        request_metadata: Optional[StrictStr] = None,
+        artifact: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> SendMessageResponse:
+        """ Send Message V3
+
+        Sends a message to the chat
+
+        :param message: (required)
+        :type message: str
+        :param project_id: (required)
+        :type project_id: str
+        :param x_api_key: Your Odin API key.
+        :type x_api_key: str
+        :param x_api_secret: Your Odin API secret.
+        :type x_api_secret: str
+        :param chat_id:
+        :type chat_id: str
+        :param document_keys:
+        :type document_keys: str
+        :param google_search:
+        :type google_search: bool
+        :param is_test:
+        :type is_test: bool
+        :param personality_name:
+        :type personality_name: str
+        :param return_message:
+        :type return_message: bool
+        :param ai_response:
+        :type ai_response: bool
+        :param model_name:
+        :type model_name: str
+        :param agent_type:
+        :type agent_type: str
+        :param chat_name:
+        :type chat_name: str
+        :param agent_id:
+        :type agent_id: str
+        :param personality_id:
+        :type personality_id: str
+        :param use_knowledgebase:
+        :type use_knowledgebase: bool
+        :param is_regenerating:
+        :type is_regenerating: bool
+        :param message_id:
+        :type message_id: str
+        :param ui_form:
+        :type ui_form: object
+        :param images:
+        :type images: Images
+        :param threshold:
+        :type threshold: float
+        :param use_kb_cache:
+        :type use_kb_cache: bool
+        :param ignore_chat_history:
+        :type ignore_chat_history: bool
+        :param quick_upload_file:
+        :type quick_upload_file: bytearray
+        :param format_instructions:
+        :type format_instructions: str
+        :param example_json:
+        :type example_json: str
+        :param multipart_document_keys:
+        :type multipart_document_keys: str
+        :param quick_upload_multiple:
+        :type quick_upload_multiple: QuickUploadMultiple
+        :param sent_from_automator:
+        :type sent_from_automator: bool
+        :param skip_stream:
+        :type skip_stream: bool
+        :param request_metadata:
+        :type request_metadata: str
+        :param artifact:
+        :type artifact: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._send_message_v3_v3_chat_message_post_serialize(
+            message=message,
+            project_id=project_id,
+            x_api_key=x_api_key,
+            x_api_secret=x_api_secret,
+            chat_id=chat_id,
+            document_keys=document_keys,
+            google_search=google_search,
+            is_test=is_test,
+            personality_name=personality_name,
+            return_message=return_message,
+            ai_response=ai_response,
+            model_name=model_name,
+            agent_type=agent_type,
+            chat_name=chat_name,
+            agent_id=agent_id,
+            personality_id=personality_id,
+            use_knowledgebase=use_knowledgebase,
+            is_regenerating=is_regenerating,
+            message_id=message_id,
+            ui_form=ui_form,
+            images=images,
+            threshold=threshold,
+            use_kb_cache=use_kb_cache,
+            ignore_chat_history=ignore_chat_history,
+            quick_upload_file=quick_upload_file,
+            format_instructions=format_instructions,
+            example_json=example_json,
+            multipart_document_keys=multipart_document_keys,
+            quick_upload_multiple=quick_upload_multiple,
+            sent_from_automator=sent_from_automator,
+            skip_stream=skip_stream,
+            request_metadata=request_metadata,
+            artifact=artifact,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SendMessageResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def send_message_v3_v3_chat_message_post_with_http_info(
+        self,
+        message: StrictStr,
+        project_id: StrictStr,
+        x_api_key: Annotated[Optional[StrictStr], Field(description="Your Odin API key.")] = None,
+        x_api_secret: Annotated[Optional[StrictStr], Field(description="Your Odin API secret.")] = None,
+        chat_id: Optional[StrictStr] = None,
+        document_keys: Optional[StrictStr] = None,
+        google_search: Optional[StrictBool] = None,
+        is_test: Optional[StrictBool] = None,
+        personality_name: Optional[StrictStr] = None,
+        return_message: Optional[StrictBool] = None,
+        ai_response: Optional[StrictBool] = None,
+        model_name: Optional[StrictStr] = None,
+        agent_type: Optional[StrictStr] = None,
+        chat_name: Optional[StrictStr] = None,
+        agent_id: Optional[StrictStr] = None,
+        personality_id: Optional[StrictStr] = None,
+        use_knowledgebase: Optional[StrictBool] = None,
+        is_regenerating: Optional[StrictBool] = None,
+        message_id: Optional[StrictStr] = None,
+        ui_form: Optional[Dict[str, Any]] = None,
+        images: Optional[Images] = None,
+        threshold: Optional[Union[StrictFloat, StrictInt]] = None,
+        use_kb_cache: Optional[StrictBool] = None,
+        ignore_chat_history: Optional[StrictBool] = None,
+        quick_upload_file: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
+        format_instructions: Optional[StrictStr] = None,
+        example_json: Optional[StrictStr] = None,
+        multipart_document_keys: Optional[StrictStr] = None,
+        quick_upload_multiple: Optional[QuickUploadMultiple] = None,
+        sent_from_automator: Optional[StrictBool] = None,
+        skip_stream: Optional[StrictBool] = None,
+        request_metadata: Optional[StrictStr] = None,
+        artifact: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[SendMessageResponse]:
+        """ Send Message V3
+
+        Sends a message to the chat
+
+        :param message: (required)
+        :type message: str
+        :param project_id: (required)
+        :type project_id: str
+        :param x_api_key: Your Odin API key.
+        :type x_api_key: str
+        :param x_api_secret: Your Odin API secret.
+        :type x_api_secret: str
+        :param chat_id:
+        :type chat_id: str
+        :param document_keys:
+        :type document_keys: str
+        :param google_search:
+        :type google_search: bool
+        :param is_test:
+        :type is_test: bool
+        :param personality_name:
+        :type personality_name: str
+        :param return_message:
+        :type return_message: bool
+        :param ai_response:
+        :type ai_response: bool
+        :param model_name:
+        :type model_name: str
+        :param agent_type:
+        :type agent_type: str
+        :param chat_name:
+        :type chat_name: str
+        :param agent_id:
+        :type agent_id: str
+        :param personality_id:
+        :type personality_id: str
+        :param use_knowledgebase:
+        :type use_knowledgebase: bool
+        :param is_regenerating:
+        :type is_regenerating: bool
+        :param message_id:
+        :type message_id: str
+        :param ui_form:
+        :type ui_form: object
+        :param images:
+        :type images: Images
+        :param threshold:
+        :type threshold: float
+        :param use_kb_cache:
+        :type use_kb_cache: bool
+        :param ignore_chat_history:
+        :type ignore_chat_history: bool
+        :param quick_upload_file:
+        :type quick_upload_file: bytearray
+        :param format_instructions:
+        :type format_instructions: str
+        :param example_json:
+        :type example_json: str
+        :param multipart_document_keys:
+        :type multipart_document_keys: str
+        :param quick_upload_multiple:
+        :type quick_upload_multiple: QuickUploadMultiple
+        :param sent_from_automator:
+        :type sent_from_automator: bool
+        :param skip_stream:
+        :type skip_stream: bool
+        :param request_metadata:
+        :type request_metadata: str
+        :param artifact:
+        :type artifact: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._send_message_v3_v3_chat_message_post_serialize(
+            message=message,
+            project_id=project_id,
+            x_api_key=x_api_key,
+            x_api_secret=x_api_secret,
+            chat_id=chat_id,
+            document_keys=document_keys,
+            google_search=google_search,
+            is_test=is_test,
+            personality_name=personality_name,
+            return_message=return_message,
+            ai_response=ai_response,
+            model_name=model_name,
+            agent_type=agent_type,
+            chat_name=chat_name,
+            agent_id=agent_id,
+            personality_id=personality_id,
+            use_knowledgebase=use_knowledgebase,
+            is_regenerating=is_regenerating,
+            message_id=message_id,
+            ui_form=ui_form,
+            images=images,
+            threshold=threshold,
+            use_kb_cache=use_kb_cache,
+            ignore_chat_history=ignore_chat_history,
+            quick_upload_file=quick_upload_file,
+            format_instructions=format_instructions,
+            example_json=example_json,
+            multipart_document_keys=multipart_document_keys,
+            quick_upload_multiple=quick_upload_multiple,
+            sent_from_automator=sent_from_automator,
+            skip_stream=skip_stream,
+            request_metadata=request_metadata,
+            artifact=artifact,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SendMessageResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def send_message_v3_v3_chat_message_post_without_preload_content(
+        self,
+        message: StrictStr,
+        project_id: StrictStr,
+        x_api_key: Annotated[Optional[StrictStr], Field(description="Your Odin API key.")] = None,
+        x_api_secret: Annotated[Optional[StrictStr], Field(description="Your Odin API secret.")] = None,
+        chat_id: Optional[StrictStr] = None,
+        document_keys: Optional[StrictStr] = None,
+        google_search: Optional[StrictBool] = None,
+        is_test: Optional[StrictBool] = None,
+        personality_name: Optional[StrictStr] = None,
+        return_message: Optional[StrictBool] = None,
+        ai_response: Optional[StrictBool] = None,
+        model_name: Optional[StrictStr] = None,
+        agent_type: Optional[StrictStr] = None,
+        chat_name: Optional[StrictStr] = None,
+        agent_id: Optional[StrictStr] = None,
+        personality_id: Optional[StrictStr] = None,
+        use_knowledgebase: Optional[StrictBool] = None,
+        is_regenerating: Optional[StrictBool] = None,
+        message_id: Optional[StrictStr] = None,
+        ui_form: Optional[Dict[str, Any]] = None,
+        images: Optional[Images] = None,
+        threshold: Optional[Union[StrictFloat, StrictInt]] = None,
+        use_kb_cache: Optional[StrictBool] = None,
+        ignore_chat_history: Optional[StrictBool] = None,
+        quick_upload_file: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
+        format_instructions: Optional[StrictStr] = None,
+        example_json: Optional[StrictStr] = None,
+        multipart_document_keys: Optional[StrictStr] = None,
+        quick_upload_multiple: Optional[QuickUploadMultiple] = None,
+        sent_from_automator: Optional[StrictBool] = None,
+        skip_stream: Optional[StrictBool] = None,
+        request_metadata: Optional[StrictStr] = None,
+        artifact: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """ Send Message V3
+
+        Sends a message to the chat
+
+        :param message: (required)
+        :type message: str
+        :param project_id: (required)
+        :type project_id: str
+        :param x_api_key: Your Odin API key.
+        :type x_api_key: str
+        :param x_api_secret: Your Odin API secret.
+        :type x_api_secret: str
+        :param chat_id:
+        :type chat_id: str
+        :param document_keys:
+        :type document_keys: str
+        :param google_search:
+        :type google_search: bool
+        :param is_test:
+        :type is_test: bool
+        :param personality_name:
+        :type personality_name: str
+        :param return_message:
+        :type return_message: bool
+        :param ai_response:
+        :type ai_response: bool
+        :param model_name:
+        :type model_name: str
+        :param agent_type:
+        :type agent_type: str
+        :param chat_name:
+        :type chat_name: str
+        :param agent_id:
+        :type agent_id: str
+        :param personality_id:
+        :type personality_id: str
+        :param use_knowledgebase:
+        :type use_knowledgebase: bool
+        :param is_regenerating:
+        :type is_regenerating: bool
+        :param message_id:
+        :type message_id: str
+        :param ui_form:
+        :type ui_form: object
+        :param images:
+        :type images: Images
+        :param threshold:
+        :type threshold: float
+        :param use_kb_cache:
+        :type use_kb_cache: bool
+        :param ignore_chat_history:
+        :type ignore_chat_history: bool
+        :param quick_upload_file:
+        :type quick_upload_file: bytearray
+        :param format_instructions:
+        :type format_instructions: str
+        :param example_json:
+        :type example_json: str
+        :param multipart_document_keys:
+        :type multipart_document_keys: str
+        :param quick_upload_multiple:
+        :type quick_upload_multiple: QuickUploadMultiple
+        :param sent_from_automator:
+        :type sent_from_automator: bool
+        :param skip_stream:
+        :type skip_stream: bool
+        :param request_metadata:
+        :type request_metadata: str
+        :param artifact:
+        :type artifact: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._send_message_v3_v3_chat_message_post_serialize(
+            message=message,
+            project_id=project_id,
+            x_api_key=x_api_key,
+            x_api_secret=x_api_secret,
+            chat_id=chat_id,
+            document_keys=document_keys,
+            google_search=google_search,
+            is_test=is_test,
+            personality_name=personality_name,
+            return_message=return_message,
+            ai_response=ai_response,
+            model_name=model_name,
+            agent_type=agent_type,
+            chat_name=chat_name,
+            agent_id=agent_id,
+            personality_id=personality_id,
+            use_knowledgebase=use_knowledgebase,
+            is_regenerating=is_regenerating,
+            message_id=message_id,
+            ui_form=ui_form,
+            images=images,
+            threshold=threshold,
+            use_kb_cache=use_kb_cache,
+            ignore_chat_history=ignore_chat_history,
+            quick_upload_file=quick_upload_file,
+            format_instructions=format_instructions,
+            example_json=example_json,
+            multipart_document_keys=multipart_document_keys,
+            quick_upload_multiple=quick_upload_multiple,
+            sent_from_automator=sent_from_automator,
+            skip_stream=skip_stream,
+            request_metadata=request_metadata,
+            artifact=artifact,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SendMessageResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _send_message_v3_v3_chat_message_post_serialize(
+        self,
+        message,
+        project_id,
+        x_api_key,
+        x_api_secret,
+        chat_id,
+        document_keys,
+        google_search,
+        is_test,
+        personality_name,
+        return_message,
+        ai_response,
+        model_name,
+        agent_type,
+        chat_name,
+        agent_id,
+        personality_id,
+        use_knowledgebase,
+        is_regenerating,
+        message_id,
+        ui_form,
+        images,
+        threshold,
+        use_kb_cache,
+        ignore_chat_history,
+        quick_upload_file,
+        format_instructions,
+        example_json,
+        multipart_document_keys,
+        quick_upload_multiple,
+        sent_from_automator,
+        skip_stream,
+        request_metadata,
+        artifact,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        if x_api_key is not None:
+            _header_params['X-API-KEY'] = x_api_key
+        if x_api_secret is not None:
+            _header_params['X-API-SECRET'] = x_api_secret
+        # process the form parameters
+        if message is not None:
+            _form_params.append(('message', message))
+        if project_id is not None:
+            _form_params.append(('project_id', project_id))
+        if chat_id is not None:
+            _form_params.append(('chat_id', chat_id))
+        if document_keys is not None:
+            _form_params.append(('document_keys', document_keys))
+        if google_search is not None:
+            _form_params.append(('google_search', google_search))
+        if is_test is not None:
+            _form_params.append(('is_test', is_test))
+        if personality_name is not None:
+            _form_params.append(('personality_name', personality_name))
+        if return_message is not None:
+            _form_params.append(('return_message', return_message))
+        if ai_response is not None:
+            _form_params.append(('ai_response', ai_response))
+        if model_name is not None:
+            _form_params.append(('model_name', model_name))
+        if agent_type is not None:
+            _form_params.append(('agent_type', agent_type))
+        if chat_name is not None:
+            _form_params.append(('chat_name', chat_name))
+        if agent_id is not None:
+            _form_params.append(('agent_id', agent_id))
+        if personality_id is not None:
+            _form_params.append(('personality_id', personality_id))
+        if use_knowledgebase is not None:
+            _form_params.append(('use_knowledgebase', use_knowledgebase))
+        if is_regenerating is not None:
+            _form_params.append(('is_regenerating', is_regenerating))
+        if message_id is not None:
+            _form_params.append(('message_id', message_id))
+        if ui_form is not None:
+            _form_params.append(('ui_form', ui_form))
+        if images is not None:
+            _form_params.append(('images', images))
+        if threshold is not None:
+            _form_params.append(('threshold', threshold))
+        if use_kb_cache is not None:
+            _form_params.append(('use_kb_cache', use_kb_cache))
+        if ignore_chat_history is not None:
+            _form_params.append(('ignore_chat_history', ignore_chat_history))
+        if quick_upload_file is not None:
+            _files['quick_upload_file'] = quick_upload_file
+        if format_instructions is not None:
+            _form_params.append(('format_instructions', format_instructions))
+        if example_json is not None:
+            _form_params.append(('example_json', example_json))
+        if multipart_document_keys is not None:
+            _form_params.append(('multipart_document_keys', multipart_document_keys))
+        if quick_upload_multiple is not None:
+            _form_params.append(('quick_upload_multiple', quick_upload_multiple))
+        if sent_from_automator is not None:
+            _form_params.append(('sent_from_automator', sent_from_automator))
+        if skip_stream is not None:
+            _form_params.append(('skip_stream', skip_stream))
+        if request_metadata is not None:
+            _form_params.append(('request_metadata', request_metadata))
+        if artifact is not None:
+            _form_params.append(('artifact', artifact))
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'multipart/form-data'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/v3/chat/message',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

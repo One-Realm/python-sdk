@@ -20,8 +20,8 @@ from setuptools import setup, find_packages  # noqa: H301
 #
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
-NAME = "odin-sdk"
-VERSION = "2.0.1"
+NAME = "odinai-sdk"
+VERSION = "3.0.104"
 PYTHON_REQUIRES = ">= 3.9"
 REQUIRES = [
     "urllib3 >= 2.1.0, < 3.0.0",
@@ -33,11 +33,11 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="API Docs",
-    author="OpenAPI Generator community",
-    author_email="team@openapitools.org",
-    url="https://github.com/getodin/odin-sdk",
-    keywords=["OpenAPI", "OpenAPI-Generator", "API Docs"],
+    description="Odin AI Python SDK - Official Python client library for Odin AI API",
+    author="Odin AI Team",
+    author_email="support@getodin.ai",
+    url="https://getodin.ai",
+    keywords=["odin", "ai", "api", "sdk", "python", "cybersecurity", "security"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,

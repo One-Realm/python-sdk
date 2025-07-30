@@ -47,6 +47,13 @@ class TestAgentsApi(unittest.TestCase):
         """
         pass
 
+    def test_save_new_custom_agent_agents_new_post(self) -> None:
+        """Test case for save_new_custom_agent_agents_new_post
+
+        Save a New Custom Agent
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
