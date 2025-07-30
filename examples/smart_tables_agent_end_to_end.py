@@ -14,7 +14,6 @@ api_client.default_headers["x-api-secret"] = (
 )
 
 
-
 def get_agent_prompt(table_ids: dict) -> str:
     raw_prompt = """
 # SQL Agent Prompt for Product Catalog Search
@@ -866,7 +865,7 @@ WHERE d."symbol" = 'DN' AND d."value" = '15'
     for table_name, table_id in table_ids.items():
         table_var = f"{table_name.upper()}_TABLE"
         prompt = prompt.replace(table_var, table_id)
-    
+
     return prompt
 
 
@@ -1123,16 +1122,18 @@ try:
 
     # Get data types for the project
     data_types_api = odin_sdk.DataTypesApi(api_client)
-    
+
     try:
-        data_types_response = data_types_api.get_data_types_project_project_id_data_types_get(
-            project_id=response.project.id
+        data_types_response = (
+            data_types_api.get_data_types_project_project_id_data_types_get(
+                project_id=response.project.id
+            )
         )
-        
+
         print(f"\nData types retrieved successfully!")
         print(f"Message: {data_types_response.message}")
         print(f"Number of data types: {len(data_types_response.data_types)}")
-        
+
         for i, data_type in enumerate(data_types_response.data_types, 1):
             print(f"\nData Type {i}:")
             print(f"  ID: {data_type.id}")
@@ -1140,18 +1141,17 @@ try:
             print(f"  Description: {data_type.description}")
             print(f"  Table ID: {data_type.table_id}")
             print(f"  Schema columns: {len(data_type.schema)}")
-            
+
             # Print first few schema columns for reference
             for j, column in enumerate(data_type.schema[:3]):  # Show first 3 columns
                 print(f"    Column {j+1}: {column.name} ({column.type})")
             if len(data_type.schema) > 3:
                 print(f"    ... and {len(data_type.schema) - 3} more columns")
-                
+
     except ApiException as e:
         print(f"Error retrieving data types: {e}")
     except Exception as e:
         print(f"Unexpected error retrieving data types: {e}")
-
 
     # Get available models first
     chat_api = odin_sdk.ChatApi(api_client)
@@ -1244,20 +1244,17 @@ try:
                                     "sql_db_query_checker",
                                     "sql_db_schema",
                                     "describe_table",
-                                    "list_tables"
+                                    "list_tables",
                                 ],
                                 "csv_names": [],
                                 "table_ids": [],
                                 "enable_all_smart_tables": True,
-                                "block_type": "smart_table"
+                                "block_type": "smart_table",
                             },
-                            {
-                                "block_type": "sql",
-                                "connection_id": ""
-                            }
+                            {"block_type": "sql", "connection_id": ""},
                         ],
-                        "type": "sql_database"
-                    }
+                        "type": "sql_database",
+                    },
                 },
             },
         ],
