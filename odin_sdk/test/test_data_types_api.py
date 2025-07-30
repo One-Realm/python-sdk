@@ -124,6 +124,13 @@ class TestDataTypesApi(unittest.TestCase):
         """
         pass
 
+    def test_update_column_metadata_project_project_id_data_type_data_type_id_column_column_name_metadata_put(self) -> None:
+        """Test case for update_column_metadata_project_project_id_data_type_data_type_id_column_column_name_metadata_put
+
+        Update Column Metadata
+        """
+        pass
+
     def test_update_data_type_view_project_project_id_data_type_data_type_id_view_view_id_put(self) -> None:
         """Test case for update_data_type_view_project_project_id_data_type_data_type_id_view_view_id_put
 

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "3.0.104"
+__version__ = "3.0.105"
 
 # Define package exports
 __all__ = [
@@ -120,6 +120,8 @@ __all__ = [
     "SystemPromptInfo",
     "TemplateField",
     "TemplatePreview",
+    "UpdateColumnMetadataRequest",
+    "UpdateColumnMetadataResponse",
     "UpdateJsonRequest",
     "UpdateProjectRequest",
     "UpdateProjectResponse",
@@ -240,6 +242,8 @@ from odin_sdk.models.sync_file_request import SyncFileRequest as SyncFileRequest
 from odin_sdk.models.system_prompt_info import SystemPromptInfo as SystemPromptInfo
 from odin_sdk.models.template_field import TemplateField as TemplateField
 from odin_sdk.models.template_preview import TemplatePreview as TemplatePreview
+from odin_sdk.models.update_column_metadata_request import UpdateColumnMetadataRequest as UpdateColumnMetadataRequest
+from odin_sdk.models.update_column_metadata_response import UpdateColumnMetadataResponse as UpdateColumnMetadataResponse
 from odin_sdk.models.update_json_request import UpdateJsonRequest as UpdateJsonRequest
 from odin_sdk.models.update_project_request import UpdateProjectRequest as UpdateProjectRequest
 from odin_sdk.models.update_project_response import UpdateProjectResponse as UpdateProjectResponse

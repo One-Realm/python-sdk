@@ -100,6 +100,8 @@ from odin_sdk.models.sync_file_request import SyncFileRequest
 from odin_sdk.models.system_prompt_info import SystemPromptInfo
 from odin_sdk.models.template_field import TemplateField
 from odin_sdk.models.template_preview import TemplatePreview
+from odin_sdk.models.update_column_metadata_request import UpdateColumnMetadataRequest
+from odin_sdk.models.update_column_metadata_response import UpdateColumnMetadataResponse
 from odin_sdk.models.update_json_request import UpdateJsonRequest
 from odin_sdk.models.update_project_request import UpdateProjectRequest
 from odin_sdk.models.update_project_response import UpdateProjectResponse

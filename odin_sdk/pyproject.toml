@@ -1,6 +1,6 @@
 [project]
 name = "odinai-sdk"
-version = "3.0.104"
+version = "3.0.105"
 description = "Odin AI Python SDK - Official Python client library for Odin AI API"
 authors = [
   {name = "Odin AI Team", email = "support@getodin.ai"},

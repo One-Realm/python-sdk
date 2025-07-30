@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**get_template_details_project_project_id_data_type_templates_template_name_get**](DataTypesApi.md#get_template_details_project_project_id_data_type_templates_template_name_get) | **GET** /project/{project_id}/data-type-templates/{template_name} | Get Template Details
 [**get_templates_project_project_id_data_type_templates_get**](DataTypesApi.md#get_templates_project_project_id_data_type_templates_get) | **GET** /project/{project_id}/data-type-templates | Get Templates
 [**import_table_project_project_id_import_table_post**](DataTypesApi.md#import_table_project_project_id_import_table_post) | **POST** /project/{project_id}/import-table | Import Table
+[**update_column_metadata_project_project_id_data_type_data_type_id_column_column_name_metadata_put**](DataTypesApi.md#update_column_metadata_project_project_id_data_type_data_type_id_column_column_name_metadata_put) | **PUT** /project/{project_id}/data-type/{data_type_id}/column/{column_name}/metadata | Update Column Metadata
 [**update_data_type_view_project_project_id_data_type_data_type_id_view_view_id_put**](DataTypesApi.md#update_data_type_view_project_project_id_data_type_data_type_id_view_view_id_put) | **PUT** /project/{project_id}/data-type/{data_type_id}/view/{view_id} | Update Data Type View
 [**use_template_project_project_id_data_type_templates_use_post**](DataTypesApi.md#use_template_project_project_id_data_type_templates_use_post) | **POST** /project/{project_id}/data-type-templates/use | Use Template
 
@@ -1084,6 +1085,86 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_column_metadata_project_project_id_data_type_data_type_id_column_column_name_metadata_put**
+> UpdateColumnMetadataResponse update_column_metadata_project_project_id_data_type_data_type_id_column_column_name_metadata_put(project_id, data_type_id, column_name, update_column_metadata_request, x_api_key=x_api_key, x_api_secret=x_api_secret)
+
+Update Column Metadata
+
+Update a column's metadata in a data type table
+
+### Example
+
+
+```python
+import odin_sdk
+from odin_sdk.models.update_column_metadata_request import UpdateColumnMetadataRequest
+from odin_sdk.models.update_column_metadata_response import UpdateColumnMetadataResponse
+from odin_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://127.0.0.1:8001
+# See configuration.py for a list of all supported configuration parameters.
+configuration = odin_sdk.Configuration(
+    host = "http://127.0.0.1:8001"
+)
+
+
+# Enter a context with an instance of the API client
+with odin_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = odin_sdk.DataTypesApi(api_client)
+    project_id = 'project_id_example' # str | 
+    data_type_id = 'data_type_id_example' # str | 
+    column_name = 'column_name_example' # str | 
+    update_column_metadata_request = odin_sdk.UpdateColumnMetadataRequest() # UpdateColumnMetadataRequest | 
+    x_api_key = 'x_api_key_example' # str | Your Odin API key. (optional)
+    x_api_secret = 'x_api_secret_example' # str | Your Odin API secret. (optional)
+
+    try:
+        # Update Column Metadata
+        api_response = api_instance.update_column_metadata_project_project_id_data_type_data_type_id_column_column_name_metadata_put(project_id, data_type_id, column_name, update_column_metadata_request, x_api_key=x_api_key, x_api_secret=x_api_secret)
+        print("The response of DataTypesApi->update_column_metadata_project_project_id_data_type_data_type_id_column_column_name_metadata_put:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DataTypesApi->update_column_metadata_project_project_id_data_type_data_type_id_column_column_name_metadata_put: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **str**|  | 
+ **data_type_id** | **str**|  | 
+ **column_name** | **str**|  | 
+ **update_column_metadata_request** | [**UpdateColumnMetadataRequest**](UpdateColumnMetadataRequest.md)|  | 
+ **x_api_key** | **str**| Your Odin API key. | [optional] 
+ **x_api_secret** | **str**| Your Odin API secret. | [optional] 
+
+### Return type
+
+[**UpdateColumnMetadataResponse**](UpdateColumnMetadataResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

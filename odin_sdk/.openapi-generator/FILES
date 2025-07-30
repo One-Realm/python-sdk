@@ -97,6 +97,8 @@ docs/SyncFileRequest.md
 docs/SystemPromptInfo.md
 docs/TemplateField.md
 docs/TemplatePreview.md
+docs/UpdateColumnMetadataRequest.md
+docs/UpdateColumnMetadataResponse.md
 docs/UpdateJsonRequest.md
 docs/UpdateProjectRequest.md
 docs/UpdateProjectResponse.md
@@ -209,6 +211,8 @@ odin_sdk/models/sync_file_request.py
 odin_sdk/models/system_prompt_info.py
 odin_sdk/models/template_field.py
 odin_sdk/models/template_preview.py
+odin_sdk/models/update_column_metadata_request.py
+odin_sdk/models/update_column_metadata_response.py
 odin_sdk/models/update_json_request.py
 odin_sdk/models/update_project_request.py
 odin_sdk/models/update_project_response.py
@@ -321,6 +325,8 @@ test/test_sync_file_request.py
 test/test_system_prompt_info.py
 test/test_template_field.py
 test/test_template_preview.py
+test/test_update_column_metadata_request.py
+test/test_update_column_metadata_response.py
 test/test_update_json_request.py
 test/test_update_project_request.py
 test/test_update_project_response.py
