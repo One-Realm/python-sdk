@@ -15,6 +15,7 @@
 - 💬 **Advanced Chat Management** - Conversational AI with context and memory
 - 📊 **Smart Tables & SQL** - CSV import, database operations, and intelligent querying
 - 🔄 **Full Backward Compatibility** - Seamless upgrade from v2 with enhanced functionality
+- 📖 **Comprehensive Documentation** - Complete references for [Building Blocks](Blocks.md) and [Toolkits](ToolKits.md)
 
 ## 🚀 Quick Start
 
@@ -57,13 +58,13 @@ agent = project.agents.create(
     personality="You are a helpful research assistant with access to uploaded documents.",
     building_blocks=[
         {
-            "name": "knowledge_base",
+            "name": "knowledge_base",  # See Blocks.md for complete knowledge_base options
             "project_id": project.id,
             "generate_inline_citations": True,
             "enforce_strict_adherence": False
         },
-        {"name": "ai_model", "model": "GPT 4.1"},
-        {"name": "agent_type", "agent_type": "tool_use_agent"}
+        {"name": "ai_model", "model": "GPT 4.1"},  # See Blocks.md for all available models
+        {"name": "agent_type", "agent_type": "tool_use_agent"}  # Required core block
     ]
 )
 
@@ -87,6 +88,8 @@ print(f"AI Response: {response.message}")
 # Cleanup
 project.delete()
 ```
+
+> **🚀 Next Steps**: This quick start uses basic building blocks. For advanced configurations, see [Blocks.md](Blocks.md) for all building block options and [ToolKits.md](ToolKits.md) for additional capabilities like web search, Python execution, and database operations.
 
 ## 🔧 API Overview
 
@@ -125,6 +128,10 @@ for proj in projects.projects:
 ```
 
 ## 🧰 Agent Toolkits & Capabilities
+
+> **📖 For complete toolkit documentation and advanced configurations, see [ToolKits.md](ToolKits.md)**
+
+The ODIN SDK supports multiple specialized toolkits that extend agent capabilities. Each toolkit provides domain-specific tools for web search, code execution, database operations, financial analysis, and more.
 
 ### 1. Knowledge Base Agents
 
@@ -401,6 +408,10 @@ finally:
 
 ## 🎛️ Advanced Agent Configuration
 
+> **📖 For complete building blocks documentation with all available options, see [Blocks.md](Blocks.md)**
+
+Building blocks are modular components that define agent capabilities, behavior, and integrations. Each agent requires core blocks (agent type, AI model) and can include capability blocks (toolkits, knowledge base), behavior modifiers (rules, memory), and integration blocks (APIs, databases).
+
 ### Building Blocks Reference
 
 ```python
@@ -603,6 +614,64 @@ Analyze the sales data and provide:
 """)
 ```
 
+## 📚 Documentation Structure
+
+The ODIN SDK v3 provides comprehensive documentation across multiple files:
+
+### Core Documentation
+- **[README.md](README.md)** *(this file)* - Main SDK guide with quick start, examples, and common usage patterns
+- **[Blocks.md](Blocks.md)** - Complete building blocks reference with all configuration options
+- **[ToolKits.md](ToolKits.md)** - Detailed toolkit documentation with specific tools and capabilities
+
+### How They Work Together
+
+1. **Start Here**: Use this README for initial setup, basic concepts, and common examples
+2. **Customize Agents**: Reference [Blocks.md](Blocks.md) for detailed building block configurations:
+   - Core blocks: `agent_type`, `ai_model`
+   - Capability blocks: `knowledge_base`, `toolkits`
+   - Behavior blocks: `rules`, `memory`, `information_extraction`
+   - Integration blocks: `api`, `salesforce`, `shopify`
+
+3. **Add Functionality**: Reference [ToolKits.md](ToolKits.md) for specific toolkit implementations:
+   - `websearch` - Web search and content retrieval
+   - `python` - Code execution and data analysis
+   - `sql_database` - Database operations and smart tables
+   - `yfinance` - Financial data and market analysis
+
+### Quick Navigation
+
+```python
+# Basic agent (covered in README.md)
+agent = project.agents.create(
+    name="Basic Agent",
+    building_blocks=[
+        {"name": "agent_type", "agent_type": "tool_use_agent"},
+        {"name": "ai_model", "model": "GPT 4.1"}
+    ]
+)
+
+# Advanced configuration (see Blocks.md for all options)
+agent = project.agents.create(
+    name="Advanced Agent",
+    building_blocks=[
+        {"name": "agent_type", "agent_type": "tool_use_agent"},
+        {"name": "ai_model", "model": "claude-sonnet-4-20250514"},
+        {
+            "name": "toolkits",  # See ToolKits.md for complete toolkit reference
+            "toolkits": {
+                "websearch": {"config": {}},
+                "python": {"config": {"enabled_tools": ["execute_python"]}, "type": "python"}
+            }
+        },
+        {
+            "name": "knowledge_base",  # See Blocks.md for all knowledge_base options
+            "project_id": project.id,
+            "generate_inline_citations": True
+        }
+    ]
+)
+```
+
 ## 🧪 Testing & Development
 
 ### Running Examples
@@ -662,10 +731,17 @@ python -m pytest tests/
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+## 🆘 Support & Resources
 
-- 📖 **Documentation**: [https://api.getodin.ai/docs](https://api.getodin.ai/docs)
+### Documentation
+- 📖 **API Documentation**: [https://api.getodin.ai/docs](https://api.getodin.ai/docs)
+- 🧩 **Building Blocks Reference**: [Blocks.md](Blocks.md) - Complete configuration guide
+- 🧰 **Toolkits Reference**: [ToolKits.md](ToolKits.md) - All available toolkits and tools
+- 🚀 **SDK Guide**: [README.md](README.md) - This comprehensive guide
+
+### Community & Support
 - 💬 **Website**: [https://getodin.ai](https://getodin.ai)
+- 📧 **Support**: Contact our team for enterprise support and custom integrations
 
 
 ---
