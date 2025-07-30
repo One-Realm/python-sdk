@@ -649,10 +649,6 @@ agent = project.agents.create(name="Agent")  # Project-scoped manager
 agent.activate()                             # Self-aware resource
 ```
 
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
 ### Development Setup
 
 ```bash
@@ -668,18 +664,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🆘 Support
 
-- 📖 **Documentation**: [https://docs.odin-ai.com](https://docs.odin-ai.com)
-- 💬 **Community**: [Discord](https://discord.gg/odin-ai)
-- 🐛 **Issues**: [GitHub Issues](https://github.com/your-org/odin-sdk/issues)
-- 📧 **Email**: support@odin-ai.com
+- 📖 **Documentation**: [https://api.getodin.ai/docs](https://api.getodin.ai/docs)
+- 💬 **Website**: [https://getodin.ai](https://getodin.ai)
 
-## 🗺️ Roadmap
-
-- [ ] **Enhanced Streaming**: Real-time response streaming for better UX
-- [ ] **Async Support**: Native asyncio support for high-performance applications  
-- [ ] **Advanced Toolkits**: Additional specialized toolkits (email, calendar, etc.)
-- [ ] **Workflow Automation**: Visual workflow builder for complex agent interactions
-- [ ] **Enterprise Features**: Enhanced security, audit logs, and compliance tools
 
 ---
 
